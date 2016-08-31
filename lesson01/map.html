@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>underscore--map函数</title>
+		<script src="../js/underscore.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 遍历数组后生成数组 (可获取三个参数element, index, list)
+			var data = [1,2,3];
+			_.map(data,function(element, index, list) { //三个参数都是可选,位置固定,element是数组值,index是值在数组位置,list是整个数组
+				document.write(element);    //打印出[1,2,3]
+				document.write(index);		//打印出0 1 2
+				document.write(list);		//打印出1,2,3 1,2,3 1,2,3,因为每次遍历都会打印一遍
+			});
+			
+//			// 遍历对象 (可获取三个参数 value,key,list)
+			var data2 = {
+				name1: "lili",
+				name2: "manman"
+			};
+			_.map(data2,function(value,key,list) {   //注意第一个是value,第二个是key,位置固定,但参数可以缺少
+				document.write(value);   //打印出lili manman
+				document.write(key);	//打印出name1 name2
+				document.write(list);  //打印出 [object Object] [object Object] ,因为循环了两边,故打印两遍
+			});
+		
+			// 标准格式  _.map(list, iteratee, [context]) ,其中[context]是迭代器的上下文，也就是迭代器中this的指向
+			var obj = {name: "hello"};  
+			_.each([1, 2, 3], function (i) { 
+			  document.write(this.name + ":" + i); 
+			}, obj); 
+		</script>
+	</body>
+</html>
