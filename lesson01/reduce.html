@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>underscore--reduce函数</title>
+		<script src="../js/underscore.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 遍历数组 (可获取三个参数element, index, list)
+			var data = [1,2,3];
+			_.reduce(data,function(memo, element, index, list) { //四个参数都是可选,位置固定,memo是设置一个初始值,element是数组值,index是值在数组位置,list是整个数组
+				document.write(memo);   //打印出 4 undefined undefined
+				document.write(element);    //打印出[1,2,3]
+				document.write(index);		//打印出0 1 2
+				document.write(list);		//打印出1,2,3 1,2,3 1,2,3,因为每次遍历都会打印一遍
+			},4);   //注意4就是参数memo
+		</script>
+	</body>
+</html>
